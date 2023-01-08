@@ -1,0 +1,43 @@
+/*__________________________________________________________________________________________________________
+
+You are given a string S of size N that represents the prefix form of a valid mathematical expression.
+Convert it to its infix form.
+
+Example 1:
+
+Input: 
+*-A/BC-/AKL
+Output: 
+((A-(B/C))*((A/K)-L))
+Explanation: 
+The above output is its valid infix form.
+Your Task:
+
+Complete the function string preToInfix(string pre_exp), which takes a prefix string as input and return its infix form.
+
+ 
+
+Expected Time Complexity: O(N).
+
+Expected Auxiliary Space: O(N).
+
+
+_____________________________________________________________________________________________________________*/
+
+class Solution {
+    static String preToInfix(String pre_exp) {
+        // code here
+        Stack<String> s=new Stack<String>();
+        for(int i=pre_exp.length()-1;i>=0;i--){
+            if((pre_exp.charAt(i)>='A'&&pre_exp.charAt(i)<='Z')||(pre_exp.charAt(i)>='a'&&pre_exp.charAt(i)<='z')){
+                s.push(pre_exp.charAt(i)+"");
+            }else{
+                String x=s.pop();
+                String y=s.pop();
+                s.push('('+x+pre_exp.charAt(i)+y+')');
+            }
+        }
+        return s.pop();
+        
+    }
+}
