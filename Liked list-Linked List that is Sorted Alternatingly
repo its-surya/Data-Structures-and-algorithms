@@ -1,0 +1,58 @@
+/*_____________________________________________________________________________________________________
+
+Given a Linked list of size N, the list is in alternating ascending and descending orders. 
+Sort the given linked list in non-decreasing order.
+
+ 
+
+Example 1:
+
+Input:
+LinkedList: 1->9->2->8->3->7
+Output: 1 2 3 7 8 9
+Explanation: After sorting the given
+list will be 1-> 2-> 3-> 7-> 8-> 9.
+ 
+
+Example 2:
+
+Input:
+LinkedList: 13->99->21->80->50
+Output: 13 21 50 80 99
+Explanation: After sorting the given list 
+will be 12-> 21-> 50-> 80-> 99.
+ 
+
+Your Task:
+You do not need to read input or print anything. 
+The task is to complete the function sort() which should sort the linked list in non-decreasing order. 
+
+ 
+
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(1)
+
+
+
+______________________________________________________________________________________________________________________*/
+class Solution {
+    
+   public Node sort(Node head){
+        //your code here, return the head of the sorted list
+        Node n1=head;
+        Node n2=head.next;
+        while(n1.next!=null){
+            if(n1.data>n2.data){
+                int temp=n1.data;
+                n1.data=n2.data;
+                n2.data=temp;
+            }
+            n2=n2.next;
+            if(n2==null){
+                n1=n1.next;
+                n2=n1.next;
+            }
+        }
+        return head;
+   }
+}
