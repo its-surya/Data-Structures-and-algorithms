@@ -33,6 +33,6 @@ public  int[] twoSum(int[] nums, int target) {
             }
         }
     }
-    throw new IllegalArgumentException("No two sum solution");// exception if the user entrer a Value i.e Wrong, Example if user enter a string, he will get this.
+    return new int[]{};// exception if the user entrer a Value i.e Wrong, Example if user enter a string, he will get this.
 }
 }
